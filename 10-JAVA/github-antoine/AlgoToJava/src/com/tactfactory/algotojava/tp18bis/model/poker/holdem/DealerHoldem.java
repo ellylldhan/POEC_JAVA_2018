@@ -1,0 +1,49 @@
+package com.tactfactory.algotojava.tp18bis.model.poker.holdem;
+
+import com.tactfactory.algotojava.tp18bis.model.Card;
+import com.tactfactory.algotojava.tp18bis.model.Dealer;
+import com.tactfactory.algotojava.tp18bis.model.Player;
+import com.tactfactory.algotojava.tp18bis.model.poker.PokerDeck;
+
+import java.util.List;
+
+public class DealerHoldem extends Dealer implements HoldemDealer {
+
+    public DealerHoldem() {
+        super();
+        this.setDeck(new PokerDeck());
+    }
+
+    @Override
+    public void dealCards(Player player) {
+        player.getCards().add(((PokerDeck) this.getDeck()).dealACard());
+    }
+
+    @Override
+    public void dealInitialCards(List<Player> players) {
+        for (Player player : players) {
+            for (int i = 0; i < 2; i++) {
+                dealCards(player);
+            }
+        }
+    }
+
+    @Override
+    public void retreiveCard(Card card) {
+    }
+
+    @Override
+    public void renewDeck() {
+    }
+
+    @Override
+    public void burnCard() {
+        this.getDeck().getDeck().remove(((PokerDeck) this.getDeck()).dealACard());
+    }
+
+    @Override
+    public Card giveCard() {
+        return ((PokerDeck) this.getDeck()).dealACard();
+    }
+
+}

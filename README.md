@@ -1,5 +1,5 @@
-# POIEC Java 2018
-Cours POEIC Java Avril-Juillet 2018
+# POEC Java 2018
+Cours POEC Java Avril-Juillet 2018
 
 Sommaire :
 - [00. Projet FSP]
